@@ -132,7 +132,7 @@ public class MyMouseAdapter extends MouseAdapter {
 								Color newColor = Color.LIGHT_GRAY;
 								
 								myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
-								//FIX!!!!
+								//Fixed
 								
 								
 									
