@@ -1,8 +1,10 @@
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Insets;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JFrame;
 
@@ -11,6 +13,8 @@ import javax.swing.JFrame;
 public class MyMouseAdapter extends MouseAdapter {
 	
 	public int event=0;
+	public int mines = 5;
+	Mines minesClass = new Mines();
 
 	private Random generator = new Random();
 
@@ -134,10 +138,26 @@ public class MyMouseAdapter extends MouseAdapter {
 								myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 								//Fixed!!!!
 								
+								if(event==0){
+
+									ArrayList<Point> mineArray = minesClass.mineGen(gridX, gridY, mines);
+
+									for(int i =0; i <= mines-1;i++){
+										int mineX=(int) mineArray.get(i).getX();
+										int mineY=(int) mineArray.get(i).getY();
+
+										
+										Color newColor1 = Color.BLACK;
+										myPanel.colorArray[mineX][mineY] = newColor1;
 								
-								
+										
+
+									}
+								}
 									
-							}
+									
+
+								}
 							event=1;
 						
 
