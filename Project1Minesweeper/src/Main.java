@@ -1,6 +1,14 @@
+import java.awt.Font;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class Main {
+	static JLabel labelTime;
+	
 	public static void main(String[] args) {
 		JFrame myFrame = new JFrame("Minesweeper");
 		myFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -11,6 +19,42 @@ public class Main {
 		MyPanel myPanel = new MyPanel();
 		myFrame.getContentPane().add(myPanel);
 		myPanel.setLayout(null);
+		
+		
+		MyMouseAdapter mouse = new MyMouseAdapter();
+		JLabel labelFlags = new JLabel();
+		Timer timer2 = new Timer();	
+		timer2.schedule(new TimerTask(){
+			@Override
+			public void run() {
+				 labelFlags.setText("Flags: " + mouse.getflagCounter() );
+			}
+		},100, 1000); 
+		
+		 labelFlags.setBounds(28, 8, 38, 15);
+		 labelFlags.setFont(new Font("Times New Roman", Font.BOLD, 10));
+		 labelFlags.setHorizontalAlignment(SwingConstants.CENTER);
+		myPanel.add( labelFlags);
+		
+		
+		
+		
+		TheTimer counting = new TheTimer();
+		Timer timer = new Timer();		
+		JLabel labelTime = new JLabel();
+		timer.schedule(new TimerTask(){
+			@Override
+			public void run() {
+				counting.increment();
+				labelTime.setText("Time: "  + TheTimer.getTime() +" sec");
+			}
+		},100, 1000); 
+
+		labelTime.setBounds(235, 9, 174, 15);
+		labelTime.setHorizontalAlignment(SwingConstants.LEFT);
+		labelTime.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		myPanel.add(labelTime);
+
 
 		MyMouseAdapter myMouseAdapter = new MyMouseAdapter();
 		myFrame.addMouseListener(myMouseAdapter);
@@ -18,7 +62,6 @@ public class Main {
 		myFrame.setVisible(true);
 	}
 }
-
 //Rules of the Game
 //1.     The initial setup consists of a grid of squares some of which contain hidden mines
 //

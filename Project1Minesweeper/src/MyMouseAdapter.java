@@ -14,9 +14,14 @@ public class MyMouseAdapter extends MouseAdapter {
 	
 	public int event=0;
 	public int mines = 5;
+	public int flag =0;
 	Mines minesClass = new Mines();
 
 	private Random generator = new Random();
+	
+	public int getflagCounter (){
+		return flag;
+	}
 
 	public void mousePressed(MouseEvent e) {
 		switch(e.getButton()){
