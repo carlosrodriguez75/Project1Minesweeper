@@ -5,9 +5,7 @@ public class TheTimer {
 
 	public static String getTime()
 	{
-		
-		//Counting
-
+		//Counter 
 		if(seconds < 10)
 			return "00"+seconds;
 		else if(seconds < 100)
@@ -17,7 +15,7 @@ public class TheTimer {
 	}
 
 	public void increment(){
-		//invrementing the seconds
+		//Incrementing the seconds on the Display
 		seconds++;
 		
 	}

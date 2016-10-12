@@ -21,13 +21,13 @@ public class Main {
 		myPanel.setLayout(null);
 		
 		
-		MyMouseAdapter mouse = new MyMouseAdapter();
+		
 		JLabel labelFlags = new JLabel();
 		Timer timer2 = new Timer();	
 		timer2.schedule(new TimerTask(){
 			@Override
 			public void run() {
-				 labelFlags.setText("Flags: " + mouse.getflagCounter() );
+				 labelFlags.setText("Flags: " + MyMouseAdapter.getFlagCounter() );
 			}
 		},100, 1000); 
 		

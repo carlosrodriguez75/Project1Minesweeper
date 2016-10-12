@@ -14,13 +14,21 @@ public class MyMouseAdapter extends MouseAdapter {
 	
 	public int event=0;
 	public int mines = 5;
-	public int flag =0;
+	public static int flag = 0;
 	Mines minesClass = new Mines();
 
 	private Random generator = new Random();
 	
-	public int getflagCounter (){
-		return flag;
+	public static String getFlagCounter()
+	{
+
+		return "" +flag;
+	}
+	
+	public void increment(){
+		
+		flag++;
+		
 	}
 
 	public void mousePressed(MouseEvent e) {
@@ -222,6 +230,7 @@ public class MyMouseAdapter extends MouseAdapter {
 							case 0:
 
 								newColor = Color.RED;
+								increment();
 								break;
 							}
 							myPanel1.colorArray[myPanel1.mouseDownGridX][myPanel1.mouseDownGridY] = newColor;
@@ -244,6 +253,7 @@ public class MyMouseAdapter extends MouseAdapter {
 							switch (generator.nextInt(1)) {
 							case 0:
 								newColor = Color.RED;
+								increment();
 								break;
 							}
 							if(myPanel1.colorArray[myPanel1.mouseDownGridX][myPanel1.mouseDownGridY] == Color.RED)
