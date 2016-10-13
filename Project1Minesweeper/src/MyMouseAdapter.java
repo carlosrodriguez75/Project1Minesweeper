@@ -11,11 +11,15 @@ public class MyMouseAdapter extends MouseAdapter {
 	private int redCount = 0;
 	public static int flag = 0;
 	
+	//Return the number of Flags 
+	
 	public static String getFlagCounter()
 	{
 
 		return "" +flag;
 	}
+	
+	//Increment each time a flag is uncovered 
 	
 	public void increment(){
 		
@@ -114,7 +118,7 @@ public class MyMouseAdapter extends MouseAdapter {
 								//Released the mouse button on a different cell where it was pressed
 								//Do nothing
 							} else {
-								//Released the mouse button on the same cell where it was pressed
+								//Released the mouse button on the same cell where it was pressed 
 
 								if(!myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY].equals(Color.RED)){  //if square is flagged cannot color over it
 

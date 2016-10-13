@@ -66,7 +66,7 @@ public class MyPanel extends JPanel {
 		int height = y2 - y1;
 
 		//Paint the background
-		g.setColor(Color.lightGray);
+		g.setColor(Color.cyan);
 		g.fillRect(x1, y1, width + 1, height + 1);
 
 
