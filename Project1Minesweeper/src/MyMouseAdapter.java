@@ -1,3 +1,6 @@
+/**
+ * @author Carlos A. Rodriguez Santiago
+ */
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Insets;
@@ -10,6 +13,7 @@ import javax.swing.JFrame;
 public class MyMouseAdapter extends MouseAdapter {
 	private int redCount = 0;
 	public static int flag = 0;
+	public static int seconds = 0;
 	
 	//Return the number of Flags 
 	
@@ -212,6 +216,26 @@ public class MyMouseAdapter extends MouseAdapter {
 			//Do nothing
 			break;
 		}
+	}
+	
+	//Methods to the Timer
+	
+
+	public static String getTime()
+	{
+		//Counter 
+		if(seconds < 10)
+			return "00"+seconds;
+		else if(seconds < 100)
+			return "0"+seconds;
+		else
+			return ""+seconds;
+	}
+
+	public void incrementSec(){
+		//Incrementing the seconds on the Display
+		seconds++;
+		
 	}
 
 }

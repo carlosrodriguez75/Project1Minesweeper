@@ -1,3 +1,6 @@
+/**
+ * @author Carlos A. Rodriguez Santiago
+ */
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

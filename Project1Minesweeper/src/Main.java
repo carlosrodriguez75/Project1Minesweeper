@@ -1,3 +1,6 @@
+/**
+ * @author Carlos A. Rodriguez Santiago
+ */
 import java.awt.Font;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,13 +23,14 @@ public class Main {
 		myFrame.getContentPane().add(myPanel);
 		myPanel.setLayout(null);
 		
-		
+		//Flags Label
 		
 		JLabel labelFlags = new JLabel();
 		Timer timer2 = new Timer();	
 		timer2.schedule(new TimerTask(){
 			@Override
 			public void run() {
+				//Update the flags numbers
 				 labelFlags.setText("Flags: " + MyMouseAdapter.getFlagCounter() );
 			}
 		},100, 1000); 
@@ -37,16 +41,17 @@ public class Main {
 		myPanel.add( labelFlags);
 		
 		
+		//Time Label
 		
-		
-		TheTimer counting = new TheTimer();
+		MyMouseAdapter counting = new MyMouseAdapter();
 		Timer timer = new Timer();		
 		JLabel labelTime = new JLabel();
 		timer.schedule(new TimerTask(){
 			@Override
 			public void run() {
-				counting.increment();
-				labelTime.setText("Time: "  + TheTimer.getTime() +" sec");
+				//Incrementing % updating the seconds 
+				counting.incrementSec();
+				labelTime.setText("Time: "  + MyMouseAdapter.getTime() +" sec");
 			}
 		},100, 1000); 
 
